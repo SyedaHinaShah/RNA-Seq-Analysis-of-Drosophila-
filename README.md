@@ -1,25 +1,14 @@
 # RNA-Seq-Analysis-of-Drosophila-
-I performed RNA seq analysis and I have countmatrix file plus sample information in which two group (Treatment and Non-treatment), I made PCA plot, Heatmap, Box plot and valcano
+I performed RNA seq analysis and I have a countmatrix file plus sample information in which two groups (Treatment and Non-treatment), I made a PCA plot, a Heatmap, Box plot and volcano
+
 # Load necessary libraries
 library(DESeq2)
 library(ggplot2)
 library(pheatmap)
 
-# Ensure that counts_Drosophila is a data frame with rows as genes and columns as samples
-str(counts_Drosophila)
-# You should see something like: 
-# 'data.frame': 14869 obs. of 7 variables: 
-#  $ SRR031714.bam: int  157 0 14 1666 13 732 5 252 488 289 ...
-#  $ SRR031716.bam: int  142 3 18 1948 19 755 4 325 584 295 ...
-#  and so on...
-
 # Ensure that SampleInfo_Drosophila is a data frame with 7 observations (samples)
 str(SampleInfo_Drosophila)
-# You should see something like:
-# 'data.frame': 7 obs. of 3 variables: 
-#  $ SampleName: chr  "SRR031714" "SRR031716" "SRR031724" ...
-#  $ Group: chr  "Untreated" "Untreated" "Treated" "Treated" ...
-#  $ Library: chr  "PE" "PE" "PE" "PE" ...
+
 
 # Ensure the SampleName column matches the column names of counts_Drosophila
 # If needed, set the column names of counts_Drosophila to match the SampleName column from SampleInfo_Drosophila
@@ -131,9 +120,5 @@ pheatmap(mat,
 <img width="286" height="245" alt="Valcano" src="https://github.com/user-attachments/assets/14c8e457-bb1c-4934-ad6e-381b5e66ea1b" />
 <img width="286" height="245" alt="heatmap ok" src="https://github.com/user-attachments/assets/3c846392-6f01-4123-923b-7fb5a7e94f13" />
 <img width="286" height="245" alt="boxplot" src="https://github.com/user-attachments/assets/325c3e04-519b-4475-bbaf-e90e552caa94" />
-
-
-
-
 <img width="286" height="245" alt="PCA" src="https://github.com/user-attachments/assets/8a75cb1d-2ee3-4845-84bf-a183979df3c5" />
 
