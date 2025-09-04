@@ -1,5 +1,5 @@
 # RNA-Seq-Analysis-of-Drosophila-
-I performed RNA seq analysis and I have a countmatrix file plus sample information in which two groups (Treatment and Non-treatment), I made a PCA plot, a Heatmap, Box plot and volcano
+I performed RNA seq analysis, and I have a countmatrix file plus sample information in which two groups (Treatment and Non-treatment), I made a PCA plot, a Heatmap, a Box plot and a volcano
 
 # Load necessary libraries
 library(DESeq2)
@@ -8,10 +8,6 @@ library(pheatmap)
 
 # Ensure that SampleInfo_Drosophila is a data frame with 7 observations (samples)
 str(SampleInfo_Drosophila)
-
-
-# Ensure the SampleName column matches the column names of counts_Drosophila
-# If needed, set the column names of counts_Drosophila to match the SampleName column from SampleInfo_Drosophila
 colnames(counts_Drosophila) <- SampleInfo_Drosophila$SampleName
 
 # Create a DESeqDataSet
@@ -66,7 +62,7 @@ select <- rownames(res)[which(res$padj < 0.05)]  # Get significant genes
 mat <- assay(vsd)[select, ]
 pheatmap(mat, cluster_rows = TRUE, cluster_cols = TRUE)
 
-# Subset results to only include significant genes
+# Subset results only to include significant genes
 resSig <- subset(res, padj < 0.05 & abs(log2FoldChange) > 1)
 head(resSig)  # View significant genes
 ##boxplot
